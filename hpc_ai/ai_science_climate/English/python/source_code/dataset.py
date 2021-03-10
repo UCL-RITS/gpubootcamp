@@ -30,7 +30,7 @@ import os
 ## TC TL MODEL  
 url = 'https://drive.google.com/uc?id=1crZ7dHhMRuE_N-8NAzF7Nrb6AVfpxThj&export=download'
 output = '/workspace/python/jupyter_notebook/Tropical_Cyclone_Intensity_Estimation/trained_16.h5'
-gdown.download(url, output, quiet=False,proxy=None)
+gdown.cached_download(url, output, quiet=False,proxy=None)
 ## TC Dataset  
 url = 'https://drive.google.com/uc?id=1x0vNpYMa4UM95svCL_Cxty8rzjQmG0Rz&export=download'
 output = '/workspace/python/jupyter_notebook/Tropical_Cyclone_Intensity_Estimation/dataset.zip'

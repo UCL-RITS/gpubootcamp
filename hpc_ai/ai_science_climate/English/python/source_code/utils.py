@@ -54,10 +54,10 @@ def load_dataset(augment_fn = dummy):
     #Read CSV file using Pandas
     df = pd.read_csv('atlantic_storms.csv')
 
-    dir ='Dataset/tcdat/'
+    dir ='/Dataset/tcdat/'
     a = os.listdir(dir)
 
-    file_path = "Dataset/Aug/"
+    file_path = "/Dataset/Aug/"
     directory = os.path.dirname(file_path)
 
     try:
@@ -76,6 +76,8 @@ def load_dataset(augment_fn = dummy):
                 cyc_name = l[4:]
                 mask = (df['date'] > start_year ) & (df['date'] <= end_year ) & ( df['name'] == cyc_name )
                 cyc_pd = df.loc[mask]
+                if len(cyc_pd) == 0:
+                    continue
                 first = (datetime.strptime(cyc_pd['date'].iloc[0], "%Y-%m-%d %H:%M:%S"))
                 last = (datetime.strptime(cyc_pd['date'].iloc[-1], "%Y-%m-%d %H:%M:%S"))
                 text_time=[]
